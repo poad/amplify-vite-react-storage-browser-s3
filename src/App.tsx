@@ -54,7 +54,7 @@ function App() {
 
           <h1>Storage Browser for AWS S3</h1>
 
-          <S3Browser />
+          <S3Browser region={config.storage.aws_region} bucket={config.storage.bucket_name} />
           <div style={{ color: '#2d2d2d', whiteSpace: 'pre-wrap' }}>
             {auth.attributes?.name}
           </div>
