@@ -1,6 +1,6 @@
 import '@aws-amplify/ui-react-storage/styles.css';
 
-import config from '../amplify_outputs.json';
+import config from './app-config';
 import { Amplify } from 'aws-amplify';
 import useAuth from './auth/hooks';
 import { signInWithRedirect } from 'aws-amplify/auth';
@@ -45,7 +45,7 @@ function App() {
 
           <h1>Storage Browser for AWS S3</h1>
 
-          <S3Browser region={config.storage.aws_region} bucket={config.storage.bucket_name} />
+          <S3Browser bucket={config.Storage?.S3.bucket ?? ''} />
         </>) : (<></>)}
     </main>
   );

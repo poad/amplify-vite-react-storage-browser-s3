@@ -18,6 +18,9 @@ importers:
       '@aws-amplify/backend-storage':
         specifier: ^1.2.4
         version: 1.2.4(@aws-sdk/types@3.714.0)(aws-cdk-lib@2.173.2(constructs@10.4.2))(constructs@10.4.2)(zod@3.24.1)
+      '@aws-amplify/core':
+        specifier: ^6.8.0
+        version: 6.8.0
       '@aws-amplify/ui':
         specifier: ^6.7.2
         version: 6.7.2(@aws-amplify/core@6.8.0)(aws-amplify@6.11.0)(xstate@4.38.3)
@@ -8936,7 +8939,7 @@ snapshots:
     dependencies:
       '@graphql-tools/utils': 10.6.4(graphql@15.9.0)
       graphql: 15.9.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/optimize@1.4.0(graphql@15.9.0)':
     dependencies:
@@ -8958,7 +8961,7 @@ snapshots:
       '@graphql-tools/merge': 9.0.14(graphql@15.9.0)
       '@graphql-tools/utils': 10.6.4(graphql@15.9.0)
       graphql: 15.9.0
-      tslib: 2.6.3
+      tslib: 2.8.1
       value-or-promise: 1.0.12
 
   '@graphql-tools/schema@9.0.19(graphql@15.9.0)':
@@ -8975,7 +8978,7 @@ snapshots:
       cross-inspect: 1.0.1
       dset: 3.1.4
       graphql: 15.9.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/utils@6.2.4(graphql@15.9.0)':
     dependencies:
@@ -10833,7 +10836,7 @@ snapshots:
 
   cross-inspect@1.0.1:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   cross-spawn@7.0.6:
     dependencies:
@@ -11638,7 +11641,7 @@ snapshots:
   graphql-tag@2.12.6(graphql@15.9.0):
     dependencies:
       graphql: 15.9.0
-      tslib: 2.3.1
+      tslib: 2.8.1
 
   graphql-transformer-common@4.31.1:
     dependencies:
@@ -11844,7 +11847,7 @@ snapshots:
 
   is-lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   is-map@2.0.3: {}
 
@@ -11905,7 +11908,7 @@ snapshots:
 
   is-upper-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   is-weakmap@2.0.2: {}
 
@@ -12427,7 +12430,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   lru-cache@10.4.3: {}
 
@@ -13134,7 +13137,7 @@ snapshots:
 
   sponge-case@1.0.1:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   sprintf-js@1.0.3: {}
 
@@ -13259,7 +13262,7 @@ snapshots:
 
   swap-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   table@6.9.0:
     dependencies:
@@ -13283,7 +13286,7 @@ snapshots:
 
   title-case@3.0.3:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   titleize@3.0.0: {}
 
@@ -13436,11 +13439,11 @@ snapshots:
 
   upper-case-first@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   upper-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   uri-js@4.4.1:
     dependencies:

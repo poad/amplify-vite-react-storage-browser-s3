@@ -11,11 +11,10 @@ import {
 } from 'react-icons/fc';
 import { IconsProvider } from '@aws-amplify/ui-react';
 
-function S3Browser({ region, bucket }: { region: string, bucket: string }) {
+function S3Browser({ bucket }: { bucket: string }) {
   const { StorageBrowser } = createStorageBrowser({
     config: {
       ...createAmplifyAuthAdapter(),
-      region,
       listLocations: async ({ options }) => {
         return {
           items: [
