@@ -1,6 +1,4 @@
-import useAuth from '../auth/hooks';
-import { list } from 'aws-amplify/storage';
-import { createStorageBrowser } from '@aws-amplify/ui-react-storage/browser';
+import { createStorageBrowser, createAmplifyAuthAdapter } from '@aws-amplify/ui-react-storage/browser';
 import '@aws-amplify/ui-react-storage/styles.css';
 import {
   FcAlphabeticalSortingAz,
@@ -13,36 +11,24 @@ import {
 } from 'react-icons/fc';
 import { IconsProvider } from '@aws-amplify/ui-react';
 
-function S3Browser({ rootPath = '', region, bucket }: {rootPath?: string, region: string, bucket: string}) {
-  const auth = useAuth();
+function S3Browser({ region, bucket }: { region: string, bucket: string }) {
   const { StorageBrowser } = createStorageBrowser({
     config: {
+      ...createAmplifyAuthAdapter(),
       region,
-      listLocations: async () => {
-        const { items, nextToken } = await list({ path: rootPath });
+      listLocations: async ({ options }) => {
         return {
-          items: items.filter(((item) => (item.path.match(/\//g)?.length ?? 0) === 1)).map((item) => {
-            return {
-              id: item.path,
+          items: [
+            {
+              id: 'root',
               bucket,
               permissions: ['delete', 'get', 'list', 'write'],
-              prefix: item.path,
-              type: 'PREFIX',
-            };
-          }),
-          nextToken: nextToken,
+              prefix: '',
+              type: 'BUCKET',
+            },
+          ],
+          nextToken: options?.nextToken,
         };
-      },
-      getLocationCredentials: async () => ({
-        credentials: {
-          accessKeyId: auth.credentials?.credentials.accessKeyId ?? '',
-          secretAccessKey: auth.credentials?.credentials.secretAccessKey ?? '',
-          sessionToken: auth.credentials?.credentials.sessionToken ?? '',
-          expiration: auth.credentials?.credentials.expiration ?? new Date(),
-        },
-      }),
-      registerAuthListener: () => {
-        // no-op
       },
     },
   });

@@ -4,7 +4,6 @@ import config from '../amplify_outputs.json';
 import { Amplify } from 'aws-amplify';
 import useAuth from './auth/hooks';
 import { signInWithRedirect } from 'aws-amplify/auth';
-import { list } from 'aws-amplify/storage';
 import { useState } from 'react';
 import S3Browser from './s3-browser/component';
 
@@ -27,14 +26,6 @@ function App() {
     })();
   }
 
-  (async () => {
-    if (!auth.credentials) {
-      return;
-    }
-    const { items } = await list({ path: '' });
-    items.forEach((object) => console.log(JSON.stringify(object)));
-  })();
-
   if (!auth.credentials || !auth.isAuthenticated || !auth.token) {
     return <></>;
   }
@@ -55,12 +46,7 @@ function App() {
           <h1>Storage Browser for AWS S3</h1>
 
           <S3Browser region={config.storage.aws_region} bucket={config.storage.bucket_name} />
-          <div style={{ color: '#2d2d2d', whiteSpace: 'pre-wrap' }}>
-            {auth.attributes?.name}
-          </div>
-          <div style={{ color: '#2d2d2d', whiteSpace: 'pre-wrap' }}>
-            {auth.attributes?.email}
-          </div></>) : (<></>)}
+        </>) : (<></>)}
     </main>
   );
 }
