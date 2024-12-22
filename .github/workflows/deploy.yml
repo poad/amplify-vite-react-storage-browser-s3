@@ -55,7 +55,7 @@ jobs:
       env:
         DOTENV: ${{ secrets.DOTENV }}
       run:
-        echo $"DOTENV" > app/.env
+        echo "$DOTENV" > app/.env
 
     - name: deploy
       working-directory: ./cdk
