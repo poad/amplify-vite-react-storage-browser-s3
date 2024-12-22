@@ -1,0 +1,38 @@
+{
+  "app": "pnpm dlx tsx bin/cloudfront-cdn-template.ts",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "package*.json",
+      "yarn.lock",
+      "node_modules",
+      "test"
+    ]
+  },
+  "requireApproval": "never",
+  "versionReporting": false,
+  "pathMetadata": false,
+  "context": {
+    "default": {
+      "appName": "storage-browser-s3",
+      "stackName": "storage-browser-s3",
+      "bucketName": "storage-browser-s3",
+      "cloudfront": {
+        "comment": "Storage browser for Amazon S3 sample",
+        "originAccessControl": {
+          "functionConfig": {
+            "name": "index-forward-s3-browser"
+          },
+          "name": "storage-browser-s3-oac"
+        }
+      }
+    }
+  }
+}
