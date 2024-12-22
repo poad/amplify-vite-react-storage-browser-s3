@@ -1,13 +1,10 @@
 import '@aws-amplify/ui-react-storage/styles.css';
 
 import config from './app-config';
-import { Amplify } from 'aws-amplify';
 import useAuth from './auth/hooks';
 import { signInWithRedirect } from 'aws-amplify/auth';
 import { useState } from 'react';
 import S3Browser from './s3-browser/component';
-
-Amplify.configure(config);
 
 function App() {
   const auth = useAuth();

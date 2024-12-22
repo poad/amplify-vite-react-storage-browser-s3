@@ -4,17 +4,17 @@ const appConfig = {
   Auth: {
     Cognito: {
       // REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-      identityPoolId: process.env.NEXT_PUBLIC_AWS_COGNITO_ID_POOL_ID,
+      identityPoolId: import.meta.env.VITE_AWS_COGNITO_ID_POOL_ID,
 
       // OPTIONAL - Amazon Cognito User Pool ID
-      userPoolId: process.env.NEXT_PUBLIC_AWS_COGNITO_USER_POOL_ID,
+      userPoolId: import.meta.env.VITE_AWS_COGNITO_USER_POOL_ID,
 
       // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-      userPoolClientId: process.env.NEXT_PUBLIC_AWS_WEB_CLIENT_ID,
+      userPoolClientId: import.meta.env.VITE_AWS_WEB_CLIENT_ID,
 
       loginWith: {
         oauth: {
-          domain: process.env.NEXT_PUBLIC_AWS_COGNITO_OAUTH_DOMAIN,
+          domain: import.meta.env.VITE_AWS_COGNITO_OAUTH_DOMAIN,
           scopes: [
             'email',
             'profile',
@@ -22,17 +22,17 @@ const appConfig = {
             'aws.cognito.signin.user.admin',
           ],
           redirectSignIn: [
-            process.env.NEXT_PUBLIC_AWS_COGNITO_OAUTH_REDIRECT_SIGNIN,
+            import.meta.env.VITE_AWS_COGNITO_OAUTH_REDIRECT_SIGNIN,
           ],
           redirectSignOut: [
-            process.env.NEXT_PUBLIC_AWS_COGNITO_OAUTH_REDIRECT_SIGNOUT,
+            import.meta.env.VITE_AWS_COGNITO_OAUTH_REDIRECT_SIGNOUT,
           ],
           responseType: 'code',
         },
       },
     },
     // REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-    identityPoolId: process.env.NEXT_PUBLIC_AWS_COGNITO_ID_POOL_ID,
+    identityPoolId: import.meta.env.VITE_AWS_COGNITO_ID_POOL_ID,
 
     // REQUIRED - Amazon Cognito Region
     region: 'us-west-2',
@@ -42,10 +42,10 @@ const appConfig = {
     identityPoolRegion: 'us-west-2',
 
     // OPTIONAL - Amazon Cognito User Pool ID
-    userPoolId: process.env.NEXT_PUBLIC_AWS_COGNITO_USER_POOL_ID,
+    userPoolId: import.meta.env.VITE_AWS_COGNITO_USER_POOL_ID,
 
     // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-    userPoolWebClientId: process.env.NEXT_PUBLIC_AWS_WEB_CLIENT_ID,
+    userPoolWebClientId: import.meta.env.VITE_AWS_WEB_CLIENT_ID,
 
     // // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
     // mandatorySignIn: false,
@@ -77,21 +77,21 @@ const appConfig = {
 
     // OPTIONAL - Hosted UI configuration
     oauth: {
-      domain: process.env.NEXT_PUBLIC_AWS_COGNITO_OAUTH_DOMAIN,
+      domain: import.meta.env.VITE_AWS_COGNITO_OAUTH_DOMAIN,
       scope: ['email', 'profile', 'openid', 'aws.cognito.signin.user.admin'],
-      redirectSignIn: process.env.NEXT_PUBLIC_AWS_COGNITO_OAUTH_REDIRECT_SIGNIN,
+      redirectSignIn: import.meta.env.VITE_AWS_COGNITO_OAUTH_REDIRECT_SIGNIN,
       redirectSignOut:
-        process.env.NEXT_PUBLIC_AWS_COGNITO_OAUTH_REDIRECT_SIGNOUT,
+        import.meta.env.VITE_AWS_COGNITO_OAUTH_REDIRECT_SIGNOUT,
       responseType: 'token',
     },
   } as AuthConfig,
   Storage: {
     S3: {
-      bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET,
+      bucket: import.meta.env.VITE_AWS_S3_BUCKET,
       region: 'us-west-2',
       buckets: {
         'default': {
-          bucketName: process.env.NEXT_PUBLIC_AWS_S3_BUCKET,
+          bucketName: import.meta.env.VITE_AWS_S3_BUCKET,
           region: 'us-west-2',
           paths: {
             'public/*': {

@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -33,8 +31,5 @@ jobs:
             args: [--no-frozen-lockfile]
           - args: [--global, aws-cdk]
 
-    - name: Make test config
-      run: |
-        echo '{ "storage": { "aws_region": "us-west-2", "bucket_name": "" } }' > amplify_outputs.json
     - name: build
       run: pnpm -r build
