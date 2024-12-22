@@ -23,12 +23,12 @@ export const compileBundles = () => {
         cwd: `${process.cwd()}/${f}/`,
         stdio: ['ignore', 'inherit', 'inherit'],
         env: { ...process.env },
-        shell: process.env.SHELL || 'bash',
+        shell: process.env.SHELL ?? '/bin/sh',
       });
     });
   });
 
-  [`${process.cwd()}/../docs/dist`].forEach(
+  [`${process.cwd()}/../app/dist`].forEach(
     (dir) => {
       if (fs.existsSync(dir)) {
         fs.rmSync(dir, {
@@ -40,10 +40,10 @@ export const compileBundles = () => {
 
   ['pnpm build'].forEach((cmd) => {
     childProcess.execSync(cmd, {
-      cwd: `${process.cwd()}/../docs`,
+      cwd: `${process.cwd()}/../app`,
       stdio: ['ignore', 'inherit', 'inherit'],
       env: { ...process.env },
-      shell: 'bash',
+      shell: process.env.SHELL ?? '/bin/sh',
     });
   });
 };

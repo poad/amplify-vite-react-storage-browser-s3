@@ -21,6 +21,7 @@
   "pathMetadata": false,
   "context": {
     "default": {
+      "appName": "storage-browser-s3",
       "stackName": "storage-browser-s3",
       "bucketName": "storage-browser-s3",
       "cloudfront": {

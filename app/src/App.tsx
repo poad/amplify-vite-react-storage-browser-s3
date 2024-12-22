@@ -13,6 +13,7 @@ function App() {
   if (auth.isLoading) {
     return <></>;
   }
+
   if (!auth.isAuthenticated) {
     (async () => {
       try {
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <main>
+      {auth.isAuthenticated}
       {error ? (
         <pre style={{ color: 'red' }}>{error}</pre>
       ) : (

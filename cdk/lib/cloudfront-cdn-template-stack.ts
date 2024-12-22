@@ -8,6 +8,7 @@ import { compileBundles } from './process/setup';
 import * as deployment from 'aws-cdk-lib/aws-s3-deployment';
 
 export interface Config extends cdk.StackProps {
+  appName: string;
   bucketName: string;
   cloudfront: {
     comment: string;
@@ -57,6 +58,7 @@ export class CloudfrontCdnTemplateStack extends cdk.Stack {
     super(scope, id, props);
 
     const {
+      appName,
       bucketName,
       environment,
       cloudfront: { comment, originAccessControl },
@@ -86,7 +88,7 @@ export class CloudfrontCdnTemplateStack extends cdk.Stack {
     ];
 
     const deployRole = new iam.Role(this, 'DeployWebsiteRole', {
-      roleName: 'astro-cloudfront-example-deploy-role',
+      roleName: `${appName}-deploy-role`,
       assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
       inlinePolicies: {
         's3-policy': new iam.PolicyDocument({
@@ -102,7 +104,7 @@ export class CloudfrontCdnTemplateStack extends cdk.Stack {
     });
 
     new deployment.BucketDeployment(this, 'DeployWebsite', {
-      sources: [deployment.Source.asset(`${process.cwd()}/../docs/dist`)],
+      sources: [deployment.Source.asset(`${process.cwd()}/../app/dist`)],
       destinationBucket: s3bucket,
       destinationKeyPrefix: '/',
       exclude: ['.DS_Store', '*/.DS_Store'],
@@ -125,7 +127,7 @@ export class CloudfrontCdnTemplateStack extends cdk.Stack {
         compress: true,
         functionAssociations,
         allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
-        cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+        cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED,
         cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD,
         viewerProtocolPolicy:
           cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
@@ -167,7 +169,7 @@ export class CloudfrontCdnTemplateStack extends cdk.Stack {
             s3.HttpMethods.DELETE,
           ],
           allowedOrigins: [
-            // `https://${cf.distributionDomainName}`,
+            `https://${cf.distributionDomainName}`,
             'http://localhost:3000',
             'http://localhost:4173',
             'http://localhost:5173'
