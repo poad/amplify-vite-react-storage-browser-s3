@@ -41,7 +41,6 @@
     "constructs": "^10.4.2",
     "esbuild": "0.24.0",
     "eslint": "^9.17.0",
-    "eslint-config-next": "^15.1.3",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.31.0",
