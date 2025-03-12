@@ -32,16 +32,16 @@
     "@stylistic/eslint-plugin-jsx": "^2.13.0",
     "@stylistic/eslint-plugin-plus": "^2.13.0",
     "@stylistic/eslint-plugin-ts": "^2.13.0",
-    "@types/node": "^22.13.9",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "aws-cdk": "^2.1003.0",
-    "aws-cdk-lib": "^2.182.0",
+    "aws-cdk-lib": "^2.183.0",
     "constructs": "^10.4.2",
     "esbuild": "0.25.0",
     "eslint": "^9.22.0",
-    "eslint-import-resolver-typescript": "^3.8.3",
+    "eslint-import-resolver-typescript": "^3.8.6",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-promise": "^7.2.1",
@@ -50,7 +50,7 @@
     "globals": "^15.15.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.0",
+    "typescript-eslint": "^8.26.1",
     "vite": "^5.4.14"
   }
 }
